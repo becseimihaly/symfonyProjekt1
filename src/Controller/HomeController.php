@@ -17,7 +17,15 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/browse/{slug}", name="blade")
+     * @Route("/twig", name="twig")
+     */
+    public function twig(): Response
+    {
+        return $this->render('home/twig.html.twig', ['title'=>'Twig Page']);
+    }
+
+    /**
+     * @Route("/browse/{slug}", name="browse")
      */
     public function browse(string $slug = null): Response
     {
