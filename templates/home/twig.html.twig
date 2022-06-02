@@ -1,5 +1,38 @@
-<h1>{{title}}</h1>
+{% extends "base.html.twig" %}
 
-<div>
-    This is my 1st twig page
-</dvi>
+{% block title %}Twig Page | {{parent()}}{% endblock %}
+
+{% block body %}
+	<h1>{{title}}</h1>
+
+	<div>
+		This is my 1st twig page
+	</div>
+
+	<div>
+		From americanLeague array:
+		<ul>
+			{% for team in americanLeague %}
+				<li>
+					{{ team }}
+				</li>
+			{% endfor %}
+		</ul>
+
+	</div>
+	<div>
+		From classicCars array:
+		<ul>
+			{% for car in classicCars %}
+				<li>
+					{{ car.year }}
+					-
+					{{car.brand}}
+					-
+					{{car.type|upper}}
+				</li>
+			{% endfor %}
+		</ul>
+
+	</div>
+{% endblock %}
