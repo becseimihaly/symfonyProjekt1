@@ -17,17 +17,10 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/twig", name="twig")
+     * @Route("/homepage", name="homepage")
      */
-    public function twig(): Response
+    public function homepage(): Response
     {
-
-        $americanLeague = [
-            'Rays', 'Yankees', 'Blue Jays', 'Orioles', 'Red Sox', 'Royals', 'Twins',
-            'Tigers', 'Indians', 'White Sox', 'Astros', 'Rangers', 'Angels',
-            'Mariners', 'Athletics'
-        ];
-
         $classicCars = [
             ['year'=>1953, 'brand'=>'Chevy', 'type'=>'Corvette'],
             ['year'=>1966, 'brand'=>'Ford', 'type'=>'Mustang'],
@@ -39,10 +32,33 @@ class HomeController extends AbstractController
             ['year'=>1957, 'brand'=>'Chevy', 'type'=>'Bel Air'],
             ['year'=>1966, 'brand'=>'Lincoln', 'type'=>'Continental']
         ];
+        //dump($classicCars);
+
+        return $this->render('home/homepage.html.twig', [
+            'title'=>'Home Page',
+            'classicCars'=>$classicCars
+        ]);
+    }
+    /**
+     * @Route("/twig", name="twig")
+     */
+    public function twig(): Response
+    {
+        $classicCars = [
+            ['year'=>1953, 'brand'=>'Chevy', 'type'=>'Corvette'],
+            ['year'=>1966, 'brand'=>'Ford', 'type'=>'Mustang'],
+            ['year'=>1967, 'brand'=>'Pontiac', 'type'=>'GTO'],
+            ['year'=>1969, 'brand'=>'Dodge', 'type'=>'Charger'],
+            ['year'=>1962, 'brand'=>'Chevy', 'type'=>'Impala'],
+            ['year'=>1968, 'brand'=>'Chevy', 'type'=>'Camaro'],
+            ['year'=>1962, 'brand'=>'Ford', 'type'=>'Thunderbird'],
+            ['year'=>1957, 'brand'=>'Chevy', 'type'=>'Bel Air'],
+            ['year'=>1966, 'brand'=>'Lincoln', 'type'=>'Continental']
+        ];
+        //dump($classicCars);
 
         return $this->render('home/twig.html.twig', [
             'title'=>'Twig Page',
-            'americanLeague'=>$americanLeague,
             'classicCars'=>$classicCars
         ]);
     }
@@ -58,7 +74,11 @@ class HomeController extends AbstractController
             $title = 'Minden stílus';
         }
 
+        $genre = $slug ? ucfirst(str_replace('-', ' ', $slug)) : null;
+
         //u()->title(true);
-        return new Response($title);
+        return $this->render('home/browse.html.twig', [
+            'title'=>'Browse Page',
+            'genre'=>$genre]);
     }
 }
