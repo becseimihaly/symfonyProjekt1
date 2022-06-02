@@ -2,43 +2,43 @@
 
 {% block body %}
 <div class="container">
-    <h1>{{ genre ? genre : 'Minden Stílus'}}</h1>
+    <h1>{{ genre ? genre : 'Minden Terület'}}</h1>
 
-    <h2 class="mt-5 mb-4">Filter by Genre</h2>
+    <h2 class="mt-5 mb-4">Szűrés kategóriűk szerint</h2>
     <ul class="genre-list ps-0 mt-2 mb-3">
         <li class="d-inline">
-            <a class="btn btn-primary btn-sm" href="{{path('homepage',{'slug':'pop'})}}">Pop</a>
+            <a class="btn btn-primary btn-sm" href="{{path('homepage',{'slug':'europe'})}}">EU</a>
         </li>
         <li class="d-inline">
-            <a class="btn btn-primary btn-sm" href="{{path('homepage',{'slug':'rock'})}}">Rock</a>
+            <a class="btn btn-primary btn-sm" href="{{path('homepage',{'slug':'commonwelth-of-independent-states'})}}">FÁK</a>
         </li>
         <li class="d-inline">
-            <a class="btn btn-primary btn-sm" href="{{path('homepage',{'slug':'metal'})}}">Heavy Metal</a>
+            <a class="btn btn-primary btn-sm" href="{{path('homepage',{'slug':'north-america'})}}">NA</a>
         </li>
     </ul>
 
     <div>
-        <h2 class="mt-5">Mixes</h2>
+        <h2 class="mt-5">CS:GO Teams</h2>
         <div class="row">
             <div class="col col-md-4">
                 <div class="mixed-vinyl-container p-3 text-center">
                     <img src="https://via.placeholder.com/300" data-src="https://via.placeholder.com/300" alt="Square placeholder img">
-                    <p class="mt-2"><strong>PB & Jams</strong></p>
-                    <span>14 Tracks</span> | <span>Rock</span>
+                    <p class="mt-2"><strong>Natus Vincere</strong></p>
+                    <span>6 Players</span> | <span>NaVi</span>
                 </div>
             </div>
             <div class="col col-md-4">
                 <div class="mixed-vinyl-container p-3 text-center">
                     <img src="https://via.placeholder.com/300" data-src="https://via.placeholder.com/300" alt="Square placeholder img">
-                    <p class="mt-2"><strong>Put a Hex on your Ex</strong></p>
-                    <span>8 Tracks</span> | <span>Heavy Metal</span>
+                    <p class="mt-2"><strong>FaZe Clan</strong></p>
+                    <span>5 Players</span> | <span>FaZe</span>
                 </div>
             </div>
             <div class="col col-md-4">
                 <div class="mixed-vinyl-container p-3 text-center">
                     <img src="https://via.placeholder.com/300" data-src="https://via.placeholder.com/300" alt="Square placeholder img">
-                    <p class="mt-2"><strong>Spice Grills - Summer Tunes</strong></p>
-                    <span>10 Tracks</span> | <span>Pop</span>
+                    <p class="mt-2"><strong>Evil Geniuses</strong></p>
+                    <span>15 Players</span> | <span>EG</span>
                 </div>
             </div>
         </div>
