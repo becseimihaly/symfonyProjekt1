@@ -10,9 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class PlayerController extends AbstractController
 {
     /**
-     * @Route("/api/player/{id}", name="home")
+     * @Route("/api/player/{id<\d+>}", name="api/player", methods={"GET"})
      */
-    public function getPlayer($id): Response
+    public function getPlayer(int $id): Response
     {
         $player =[
             'id'=>$id,
