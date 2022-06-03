@@ -37,9 +37,11 @@
 
             {% for car in classicCars %}
 
-            <div class="song-list">
+            <div class="song-list" {{stimulus_controller('player', {
+                infoUrl: path('api/player',{id: loop.index})
+                })}}>
                 <div class="d-flex mb-3">
-                    <a href="#">
+                    <a href="#"{{stimulus_action('player','gohltv')}}>
                         <i class="fas fa-play me-3"></i>
                     </a>
                     <span class="song-details">{{car.year}} - {{car.brand}} - {{car.type}}</span>

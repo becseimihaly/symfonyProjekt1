@@ -18,7 +18,7 @@ class PlayerController extends AbstractController
         $player =[
             'id'=>$id,
             'name'=> 'Finn \'Karrigan\' Andersen',
-            'link'=> 'https://www.hltv.org/player/429/karrigan'
+            'url'=> 'https://www.hltv.org/player/429/karrigan'
         ];
 
         $logger->info('visszaadva {player}', [
