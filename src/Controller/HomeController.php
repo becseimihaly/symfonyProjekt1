@@ -5,13 +5,14 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
 
 class HomeController extends AbstractController
 {
     /**
      * @Route("/home", name="home")
      */
-    public function home(): Response
+    public function home(Environment $twig): Response
     {
         return new Response('Ez a kezdőoldal');
     }
@@ -42,7 +43,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/twig", name="twig")
      */
-    public function twig(): Response
+    public function twig(Environment $twig): Response
     {
         $classicCars = [
             ['year'=>1953, 'brand'=>'Chevy', 'type'=>'Corvette'],
@@ -57,10 +58,12 @@ class HomeController extends AbstractController
         ];
         //dump($classicCars);
 
-        return $this->render('home/twig.html.twig', [
+        $html = $twig->render('home/twig.html.twig', [
             'title'=>'Twig Page',
             'classicCars'=>$classicCars
         ]);
+
+        return new Response($html);
     }
 
     /**
