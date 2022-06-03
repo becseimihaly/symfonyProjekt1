@@ -12,7 +12,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/home", name="home")
      */
-    public function home(Environment $twig): Response
+    public function home(): Response
     {
         return new Response('Ez a kezdőoldal');
     }
