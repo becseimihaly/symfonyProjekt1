@@ -35,7 +35,7 @@
         <div class="col-12 col-md-8 ps-5">
             <h2 class="mb-4">10 songs (30 minutes of 60 still available)</h2>
 
-            {% for car in classicCars %}
+            {% for player in team %}
 
             <div class="song-list" {{stimulus_controller('player', {
                 infoUrl: path('api/player',{id: loop.index})
@@ -44,7 +44,7 @@
                     <a href="#"{{stimulus_action('player','gohltv')}}>
                         <i class="fas fa-play me-3"></i>
                     </a>
-                    <span class="song-details">{{car.year}} - {{car.brand}} - {{car.type}}</span>
+                    <span class="song-details">{{player.name}} - {{player.teamBrand}}</span>
                     <a href="#">
                         <i class="fas fa-bars mx-3"></i>
                     </a>

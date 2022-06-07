@@ -22,22 +22,17 @@ class HomeController extends AbstractController
      */
     public function homepage(): Response
     {
-        $classicCars = [
-            ['year'=>1953, 'brand'=>'Chevy', 'type'=>'Corvette'],
-            ['year'=>1966, 'brand'=>'Ford', 'type'=>'Mustang'],
-            ['year'=>1967, 'brand'=>'Pontiac', 'type'=>'GTO'],
-            ['year'=>1969, 'brand'=>'Dodge', 'type'=>'Charger'],
-            ['year'=>1962, 'brand'=>'Chevy', 'type'=>'Impala'],
-            ['year'=>1968, 'brand'=>'Chevy', 'type'=>'Camaro'],
-            ['year'=>1962, 'brand'=>'Ford', 'type'=>'Thunderbird'],
-            ['year'=>1957, 'brand'=>'Chevy', 'type'=>'Bel Air'],
-            ['year'=>1966, 'brand'=>'Lincoln', 'type'=>'Continental']
+        $team = [
+            ['name'=>'karrigen', 'teamBrand'=>'FaZe Clan'],
+            ['name'=>'rain', 'teamBrand'=>'FaZe Clan'],
+            ['name'=>'Twistzz', 'teamBrand'=>'FaZe Clan'],
+            ['name'=>'ropz', 'teamBrand'=>'FaZe Clan']
         ];
         //dump($classicCars);
 
         return $this->render('home/homepage.html.twig', [
             'title'=>'Home Page',
-            'classicCars'=>$classicCars
+            'team'=>$team
         ]);
     }
     /**
@@ -71,17 +66,17 @@ class HomeController extends AbstractController
      */
     public function browse(string $slug = null): Response
     {
-        if ($slug) {
-            $title = 'Stílus: '.ucfirst(str_replace('-', ' ', $slug));
-        } else {
-            $title = 'Minden stílus';
-        }
+        // if ($slug) {
+        //     $title = 'Stílus: '.ucfirst(str_replace('-', ' ', $slug));
+        // } else {
+        //     $title = 'Minden stílus';
+        // }
 
-        $genre = $slug ? ucfirst(str_replace('-', ' ', $slug)) : null;
+        $area = $slug ? ucfirst(str_replace('-', ' ', $slug)) : null;
 
         //u()->title(true);
         return $this->render('home/browse.html.twig', [
             'title'=>'Browse Page',
-            'genre'=>$genre]);
+            'area'=>$area]);
     }
 }
